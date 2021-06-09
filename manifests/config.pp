@@ -12,4 +12,12 @@ class nis::config (
       content => template('nis/yp.conf.erb'),
       require => Package[$package],
     }
+
+    file {'/etc/sysconfig/ypbind':
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644',
+      content => "-r $rebind_interval",
+      notify  => Service['ypind'],
+    }
   }
