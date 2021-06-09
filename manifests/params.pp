@@ -7,7 +7,8 @@ class nis::params {
       fail("${::operatingsystem} not supported")
     }
   }
-  $domain   = 'nis'
-  $broadcast = false
-  $servers   = []
+  $domain          = 'nis'
+  $broadcast       = false
+  $servers         = []
+  $rebind_interval = 900
 }
