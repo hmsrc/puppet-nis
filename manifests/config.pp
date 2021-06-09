@@ -3,6 +3,7 @@ class nis::config (
   $broadcast = $nis::broadcast,
   $servers = $nis::servers,
   $package = $nis::package,
+  $rebind_interval = $nis::rebind_interval,
   ) {
 
     file { '/etc/yp.conf':
@@ -17,7 +18,7 @@ class nis::config (
       owner   => 'root',
       group   => 'root',
       mode    => '0644',
-      content => "-r $rebind_interval",
+      content => "-r ${rebind_interval}",
       notify  => Service['ypind'],
     }
   }
