@@ -19,6 +19,6 @@ class nis::config (
       group   => 'root',
       mode    => '0644',
       content => "-r ${rebind_interval}",
-      notify  => Service['ypind'],
+      notify  => Service['ypbind'],
     }
   }
