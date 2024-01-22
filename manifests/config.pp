@@ -18,13 +18,15 @@ class nis::config (
     }
 
     # assemble the ybind options.
-    $file_content = "-i ${ping_interval} -r ${rebind_interval}"
+    $ybind_arguments = ["-i ${ping_interval}", "-r ${rebind_interval}"]
     if $debug_ypbind == true {
-      $file_content.gsub!(/$/, ' -d');
+      $ybind_arguments << ' -d'
     }
     if $verbose_ypbind == true {
-      s.gsub!(/$/, ' -v');
+      $ybind_arguments << ' -v'
     }
+
+    $file_conent = join($ybind_arguments, ' ')
 
     file {'/etc/sysconfig/ypbind':
       owner   => 'root',
