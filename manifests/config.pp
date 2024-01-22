@@ -20,7 +20,7 @@ class nis::config (
     # assemble the ybind options.
     $file_content = "-i ${ping_interval} -r ${rebind_interval}"
     if $debug_ypbind == true {
-      s.gsub!(/$/, ' -d');
+      $file_content.gsub!(/$/, ' -d');
     }
     if $verbose_ypbind == true {
       s.gsub!(/$/, ' -v');
