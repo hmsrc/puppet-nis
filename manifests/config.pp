@@ -20,10 +20,10 @@ class nis::config (
     # assemble the ybind options.
     $ybind_arguments = ["-i ${ping_interval}", "-r ${rebind_interval}"]
     if $debug_ypbind == true {
-      $ybind_arguments << ' -d'
+      $ybind_arguments = $ybind_arguments << ' -d'
     }
     if $verbose_ypbind == true {
-      $ybind_arguments << ' -v'
+      $ybind_arguments = $ybind_arguments << ' -v'
     }
 
     $file_conent = join($ybind_arguments, ' ')
