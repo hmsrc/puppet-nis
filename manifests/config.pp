@@ -34,7 +34,7 @@ class nis::config (
       $verbose_ybind_arguments = []
     }
 
-    $file_content = join([$ybind_arguments, $verbose_ybind_argument], $ybind_debug_arguments ' ')
+    $file_content = join([$ybind_arguments, $verbose_ybind_argument, $ybind_debug_arguments], ' ')
 
     file {'/etc/sysconfig/ypbind':
       owner   => 'root',
