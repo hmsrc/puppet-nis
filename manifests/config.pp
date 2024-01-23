@@ -5,8 +5,8 @@ class nis::config (
   $package = $nis::package,
   $rebind_interval = $nis::rebind_interval,
   $ping_interval = $nis::ping_interval,
-  $debug_ypbind = $nis::debug_ypbind,
-  $verbose_ypbind = $nis::verbose_ypbind
+  $debug_ypbind = $nis::ypbind_debug,
+  $verbose_ypbind = $nis::ypbind_verbose
   ) {
 
     file { '/etc/yp.conf':
