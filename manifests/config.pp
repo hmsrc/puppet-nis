@@ -20,11 +20,11 @@ class nis::config (
     # assemble the ybind options.
     $ybind_arguments = ["-i ${ping_interval}", "-r ${rebind_interval}"]
 
-    if $debug_ypbind == true {}
+    if $debug_ypbind == true {
       $ybind_debug_arguments = [' -d']
     }
     else {
-    $ybind_debug_arguments = []
+      $ybind_debug_arguments = []
     }
 
     if $verbose_ypbind == true {
